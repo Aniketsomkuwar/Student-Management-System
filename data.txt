@@ -1,0 +1,52 @@
+create database student_Admin;
+
+use student_Admin;
+
+
+CREATE TABLE `students` (
+  name varchar(250) NOT NULL,
+  student_id varchar(250) NOT NULL,
+  DateOfBirth date DEFAULT NULL,
+  semester int DEFAULT NULL,
+  branch varchar(100) DEFAULT NULL,
+  address varchar(300) DEFAULT NULL,
+  roll_no int DEFAULT NULL,
+  email varchar(100) DEFAULT NULL,
+  cellphone varchar(20) DEFAULT NULL,
+  PRIMARY KEY (student_id)
+);
+
+
+
+
+
+create table course_data(
+course_id varchar(20) primary key ,
+course_name varchar(250) ,
+student_id varchar(250),
+foreign key (student_id ) references students(student_id)
+);
+
+
+
+
+create table marks (
+student_id varchar(250),
+subject_id varchar(50),
+marks int ,
+out_of_marks int,
+grade char(2),
+foreign key (student_id ) references students(student_id),
+foreign key (subject_id) references subject(subject_id)
+);
+
+
+create table subject(
+subject_id varchar(100) primary key,
+subject_name varchar(250) 
+);
+
+
+
+
+show tables;
